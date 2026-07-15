@@ -35,7 +35,8 @@ from brainlife_utils import (
     ensure_output_dirs,
     create_product_json,
     add_info_to_product,
-    add_raw_info_to_product
+    add_raw_info_to_product,
+    require_config_keys
 )
 
 # Set up matplotlib for headless execution
@@ -46,6 +47,7 @@ ensure_output_dirs('out_dir', 'out_report')
 
 # Load configuration
 config = load_config()
+require_config_keys(config, ['set'])
 
 # == LOAD DATA ==
 fname = config['set']
